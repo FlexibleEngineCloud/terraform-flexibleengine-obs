@@ -1,5 +1,5 @@
 module "s3_bucket" {
-  source = "../"
+  source = "../../"
 
   bucket = "test-bucket-547874"
   acl    = "private"
