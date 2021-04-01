@@ -1,4 +1,4 @@
-  
+
 output "this_obs_bucket_id" {
   description = "The name of the bucket."
   value       = element(concat(flexibleengine_obs_bucket.this.*.id, [""]), 0)

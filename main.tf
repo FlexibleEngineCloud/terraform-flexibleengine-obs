@@ -4,11 +4,11 @@ resource "flexibleengine_obs_bucket" "this" {
   bucket        = var.bucket
   storage_class = var.storage_class
 
-  versioning    = var.versioning
+  versioning = var.versioning
 
   acl = var.acl != "null" ? var.acl : null
 
-  force_destroy       = var.force_destroy
+  force_destroy = var.force_destroy
 
   dynamic "website" {
     for_each = length(keys(var.website)) == 0 ? [] : [var.website]
@@ -46,16 +46,16 @@ resource "flexibleengine_obs_bucket" "this" {
     for_each = var.lifecycle_rule
 
     content {
-      name                                   = lookup(lifecycle_rule.value, "name", null)
-      prefix                                 = lookup(lifecycle_rule.value, "prefix", null)
-      enabled                                = lifecycle_rule.value.enabled
+      name    = lookup(lifecycle_rule.value, "name", null)
+      prefix  = lookup(lifecycle_rule.value, "prefix", null)
+      enabled = lifecycle_rule.value.enabled
 
       # Max 1 block - expiration
       dynamic "expiration" {
         for_each = length(keys(lookup(lifecycle_rule.value, "expiration", {}))) == 0 ? [] : [lookup(lifecycle_rule.value, "expiration", {})]
 
         content {
-          days                         = lookup(expiration.value, "days", null)
+          days = lookup(expiration.value, "days", null)
         }
       }
 
