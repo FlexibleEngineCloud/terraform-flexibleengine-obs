@@ -4,8 +4,8 @@ module "s3_bucket" {
   bucket = "test-bucket-547874"
   acl    = "private"
 
-  attach_policy= true
-  policy = <<POLICY
+  attach_policy = true
+  policy        = <<POLICY
 {
   "Id": "MYBUCKETPOLICY",
   "Statement": [
