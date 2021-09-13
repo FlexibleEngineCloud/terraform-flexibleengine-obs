@@ -1,3 +1,8 @@
+data "flexibleengine_kms_key_v1" "key" {
+  count     = var.kms_key_alias == null ? 0 : 1
+  key_alias = var.kms_key_alias
+}
+
 resource "flexibleengine_obs_bucket" "this" {
   count = var.create_bucket ? 1 : 0
 
@@ -9,6 +14,9 @@ resource "flexibleengine_obs_bucket" "this" {
   acl = var.acl != "null" ? var.acl : null
 
   force_destroy = var.force_destroy
+
+  encryption = var.encryption
+  kms_key_id = var.kms_key_alias == null ? null : data.flexibleengine_kms_key_v1.key[0].id
 
   dynamic "website" {
     for_each = length(keys(var.website)) == 0 ? [] : [var.website]

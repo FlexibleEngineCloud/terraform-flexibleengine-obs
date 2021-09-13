@@ -75,3 +75,15 @@ variable "lifecycle_rule" {
   type        = any
   default     = []
 }
+
+variable "encryption" {
+  description = "Encryption configuration (True/False)."
+  type        = bool
+  default     = false
+}
+
+variable "kms_key_alias" {
+  description = "Alias of existing KMS key used for encryption"
+  type        = string
+  default     = null
+}
