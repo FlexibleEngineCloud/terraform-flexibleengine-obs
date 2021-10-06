@@ -13,6 +13,8 @@ resource "flexibleengine_obs_bucket" "this" {
 
   acl = var.acl != "null" ? var.acl : null
 
+  multi_az = var.multi_az
+
   force_destroy = var.force_destroy
 
   encryption = var.encryption

@@ -87,3 +87,9 @@ variable "kms_key_alias" {
   type        = string
   default     = null
 }
+
+variable "multi_az" {
+  description = "Enable cross availabilities zones replication"
+  type        = bool
+  default     = false
+}

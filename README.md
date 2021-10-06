@@ -42,6 +42,7 @@ No modules.
 | <a name="input_kms_key_alias"></a> [kms\_key\_alias](#input\_kms\_key\_alias) | Alias of existing KMS key used for encryption | `string` | `null` | no |
 | <a name="input_lifecycle_rule"></a> [lifecycle\_rule](#input\_lifecycle\_rule) | List of maps containing configuration of object lifecycle management. | `any` | `[]` | no |
 | <a name="input_logging"></a> [logging](#input\_logging) | Map containing access bucket logging configuration. | `map(string)` | `{}` | no |
+| <a name="input_multi_az"></a> [multi_az](#input\_multi_az) | Enable cross availabilities zones replication. | `bool` | `false` | no  |
 | <a name="input_policy"></a> [policy](#input\_policy) | (Optional) A valid bucket policy JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a terraform plan. In this case, please make sure you use the verbose/specific version of the policy. | `string` | `null` | no |
 | <a name="input_storage_class"></a> [storage\_class](#input\_storage\_class) | (Optional) pecifies the storage class of the bucket. OBS provides three storage classes: STANDARD, STANDARD\_IA (Infrequent Access) and GLACIER (Archive). Defaults to STANDARD. | `string` | `null` | no |
 | <a name="input_versioning"></a> [versioning](#input\_versioning) | Versioning configuration (True/False). | `bool` | `false` | no |
